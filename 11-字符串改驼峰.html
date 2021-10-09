@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function cssStyle2DomStyle(sName) {
+        let sNameAll = sName.split('-');
+        let i = 0;
+        if (sNameAll[0] == '') {
+            str = sNameAll[1];
+            i = 2;
+        } else {
+            str = sNameAll[0];
+            i = 1;
+        }
+        for (; i < sNameAll.length; i++) {
+            let firstStr = sNameAll[i][0];
+            firstStr = firstStr.toUpperCase();
+            sNameAll[i] = firstStr + sNameAll[i].slice(1)
+            str += sNameAll[i]
+        }
+        return str;
+    }
+
+    /* function cssStyle2DomStyle(sName) {
+        return sName.replace(/-[a-z]/g, function (value, index) {
+            console.log(value);
+            return index == 0 ? value.replace('-', '') : value.replace('-', '').toUpperCase();
+        })
+    } */
+
+    console.log(cssStyle2DomStyle('font-size'));
+    console.log(cssStyle2DomStyle('-webkit-border-image'));
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /* function count(str) {
+        // console.log(str.split(''));\
+        let obj = {}
+        Array.prototype.forEach.call(str, function (value, index) {
+            if (obj[value] == undefined) {
+                obj[value] = 1
+            } else {
+                obj[value]++
+            }
+        })
+        delete obj[' ']
+        return obj;
+    } */
+
+    function count(str) {
+        let obj = {}
+        str.split('').forEach((value, index) => {
+            if (obj[value] == undefined) {
+                obj[value] = 1
+            } else {
+                obj[value]++
+            }
+        });
+        delete obj[' ']
+        return obj;
+    }
+
+    // 简单写法  \S 匹配非空字符串
+    /* function count(str) {
+        var obj = {};
+        str.replace(/\S/g, function (s) {
+            !obj[s] ? obj[s] = 1 : obj[s]++;
+        })
+        return obj;
+    } */
+    count('hello world')
+    count('just for test!!!')
+</script>

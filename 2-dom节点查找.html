@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1
+        <div>2</div>
+        <p>3</p>
+    </div>
+</body>
+
+</html>
+<script>
+    function commonParentNode(oNode1, oNode2) {
+        let arr1 = []
+        let arr2 = []
+        do {
+            oNode1 = oNode1.parentNode
+            arr1.push(oNode1)
+        } while (oNode1 !== null)
+        do {
+            oNode2 = oNode2.parentNode
+            arr2.push(oNode2)
+        } while (oNode2 !== null)
+        let min = Infinity
+        let min_i = 0
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr2.indexOf(arr1[i]) != -1) {
+                return arr1[i]
+            }
+        }
+    }
+
+    /* function commonParentNode(oNode1, oNode2) {
+        while (true) {
+            oNode1 = oNode1.parentNode;
+            // contains() 用来判断dom元素的包含关系
+            if (oNode1.contains(oNode2)) {
+                return oNode1;
+            }
+        }
+    } */
+</script>

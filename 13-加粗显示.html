@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>牛客网，程序员必备求职神器</p>
+</body>
+
+</html>
+<script>
+    let str = document.querySelector('p').innerText
+    str = str.replace(/牛客网/g, '<strong>牛客网</strong>')
+    document.querySelector('p').innerHTML = str
+
+    let body = document.getElementsByTagName("body")[0];
+    body.innerHTML = `<p>${body.innerText}</p>`
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let str = 'hello world, 牛客';
+
+    // console.log(str.split(''), str.split('').length);
+    // if (bUnicode255For1 == true) {
+    //     let sArr = s.split('')
+    //     console.log(sArr.filter(function (value, index) {
+    //         return value.charCodeAt(0) > 255
+    //     }));
+    // }
+
+    // function strLength(s, bUnicode255For1) {
+    //     return bUnicode255For1 == true ? str.split('').length : str.split('').length + s.split('').filter(function (
+    //         value, index) {
+    //         return value.charCodeAt(0) > 255
+    //     }).length
+    // }
+
+    function strLength(s, bUnicode255For1) {
+        let sArr = s.split('')
+        let length2 = 0;
+        if (!bUnicode255For1) {
+            length2 = sArr.filter(function (
+                value, index) {
+                return value.charCodeAt(0) > 255
+            }).length
+        }
+        return sArr.length + length2
+    }
+
+    // console.log(strLength(str, true));
+    var l = strLength('牛客, hello world', false);
+    console.log(l === 17);
+</script>

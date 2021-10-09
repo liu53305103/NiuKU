@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 描述
+    // 计算给定数组 arr 中所有元素的总和
+    // 输入描述：
+    // 数组中的元素均为 Number 类型
+
+    function sum(arr) {
+        let sum_arr = 0;
+        arr.forEach((value, index) => {
+            sum_arr += value
+        });
+        return sum_arr
+    }
+
+    console.log(sum([1, 2, 3, 4]));
+</script>

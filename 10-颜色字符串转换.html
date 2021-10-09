@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // num.toString(16) 转换成16进制
+    function rgb2hex(sRGB) {
+        try {
+            RGB_arr = sRGB.split('(')[1].split(')')[0].split(',');
+        } catch (e) {
+            return sRGB
+        }
+        let str = '#';
+        RGB_arr.forEach(function (value, index) {
+            if (isNaN(Number(value)) || Number(value) < 0 || Number(value) > 255) {
+                return sRGB
+            }
+            let str_temp = Number(value.trim()).toString(16)
+            str_temp = str_temp.length == 2 ? str_temp : '0' + str_temp
+            str += str_temp
+        })
+        // console.log(str);
+        return str
+    }
+    console.log(rgb2hex('abcdefg'));
+    console.log(rgb2hex('rgb(255,255,100)'));
+    console.log(rgb2hex('rgb(0, 0, 0)'));
+</script>
+<script>
+    let arr = []
+    let str = ''
+    if (isNaN(Number('0'))) {
+        console.log('a');
+    } else {
+        console.log('b');
+    }
+    // str.padEnd
+    // arr.forEach
+</script>

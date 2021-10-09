@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+`<script>
+    // 对象函数的this,会指向调用的对象
+
+    // 1. 准备一个对象
+    let people1 = {
+        money: 1000,
+        fn1: function () {
+            console.log('1.我有', this.money);
+        }
+    }
+    people1.fn1();
+
+    // 2. 准备另一个对象
+    // 周总想要调用旺总的sayHi方法 ----> 就是让sayHi中的this指向周总
+    let people2 = {
+        money: 2000,
+        fn2: function () {
+            console.log('2.我有', this.money);
+        }
+    }
+
+    // 3. 利用call方法改变this的指向
+    // 原有对象.函数方法.call(修改后的指向对象)
+    // 利用call让原本没有sayHi方法的对象,借用别人的sayHi方法
+    people2.fn2();
+    people1.fn1.call(people2)
+</script>

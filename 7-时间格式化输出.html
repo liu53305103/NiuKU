@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // console.log(myDate);
+    function formatDate(myDate, str) {
+        let arr = ['日', '一', '二', '三', '四', '五', '六'];
+        // let newDate = str.replace(/[y]{4}/, myDate.getFullYear())
+        // newDate = newDate.replace(/[M]{2}/, (myDate.getMonth() + 1 + '').padStart(2, '0'))
+        // newDate = newDate.replace(/[d]{2}/, (myDate.getDate() + '').padStart(2, '0'))
+
+        // newDate = newDate.replace(/[H]{2}/, (myDate.getHours() + '').padStart(2, '0'))
+        // newDate = newDate.replace(/[m]{2}/, (myDate.getMinutes() + '').padStart(2, '0'))
+        // newDate = newDate.replace(/[s]{2}/, (myDate.getSeconds() + '').padStart(2, '0'))
+
+        // let index = myDate.getDay() == 7 ? 0 : myDate.getDay();
+        // newDate = newDate.replace(/[w]/, arr[index])
+        let obj = {
+            'yyyy': myDate.getFullYear(),
+            'yy': `${myDate.getFullYear()}`.slice(-2),
+            'MM': (myDate.getMonth() + 1 + '').padStart(2, '0'),
+            'M': myDate.getMonth() + 1,
+            'dd': (myDate.getDate() + '').padStart(2, '0'),
+            'd': myDate.getDate(),
+            'HH': (myDate.getHours() + '').padStart(2, '0'),
+            'H': myDate.getHours(),
+            'hh': (myDate.getHours() >= 12 ? myDate.getHours() - 12 : myDate.getHours() + '').padStart(2, '0'),
+            'h': myDate.getHours() >= 12 ? myDate.getHours() - 12 : myDate.getHours(),
+            'mm': (myDate.getMinutes() + '').padStart(2, '0'),
+            'm': myDate.getMinutes(),
+            'ss': (myDate.getSeconds() + '').padStart(2, '0'),
+            's': myDate.getSeconds(),
+            'w': arr[myDate.getDay() == 7 ? 0 : myDate.getDay()]
+        }
+        for (let key in obj) {
+            str.replace(key, obj[key])
+            console.log(key, obj[key]);
+            console.log(str);
+        }
+        return str;
+    }
+
+    // formatDate(new Date(1409894060000), 'yyyy-MM-dd HH:mm:ss 星期w')
+    // let str = 'yyyy-MM-dd HH:mm:ss 星期w';
+    // console.log(/[y]{4}/.test(str));
+
+    (function () {
+        var localOffset = new Date().getTimezoneOffset() * 60 * 1000;
+        var sResult = formatDate(new Date(1409894060000 + localOffset), 'yyyy-MM-dd HH:mm:ss 星期w');
+        console.log(sResult);
+        console.log(sResult === '2014-09-05 05:14:20 星期五');
+    })();
+</script>
